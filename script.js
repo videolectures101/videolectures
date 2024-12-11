@@ -42,8 +42,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Show popup every 60 seconds if user hasn't donated
-    setInterval(showDonationPopup, 60000);
+    // Changed interval from 60000 to 20000 (20 seconds)
+    setInterval(showDonationPopup, 20000);
 
     // Handle donation button click
     const donateButton = document.querySelector('.donate-button');
