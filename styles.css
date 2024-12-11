@@ -234,6 +234,7 @@ body {
 }
 
 .donation-content {
+    position: relative;
     background-color: white;
     padding: 2rem;
     border-radius: 8px;
@@ -256,4 +257,20 @@ body {
 
 .donate-button:hover {
     background-color: #34495e;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+    padding: 5px 10px;
+}
+
+.close-button:hover {
+    color: #666;
 }
