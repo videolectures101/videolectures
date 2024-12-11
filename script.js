@@ -11,12 +11,15 @@ document.addEventListener('DOMContentLoaded', function() {
             switch(selectId) {
                 case 'videoLectures':
                     console.log('Video Lecture selected:', selectedTopic);
+                    // Add your video lecture logic here
                     break;
                 case 'speedTest':
                     console.log('Speed Test selected:', selectedTopic);
+                    // Add your speed test logic here
                     break;
                 case 'resources':
                     console.log('Resource selected:', selectedTopic);
+                    // Add your resources logic here
                     break;
             }
         });
@@ -29,43 +32,57 @@ document.addEventListener('DOMContentLoaded', function() {
         navLinks.classList.toggle('show');
     });
 
-    // Donation popup functionality
+    // Popup functionality
+    let donationClicked = false;
+    let telegramClicked = false;
     const donationPopup = document.getElementById('donationPopup');
-    const donateButton = document.querySelector('.donate-button');
-    const closeButton = document.getElementById('closePopup');
-    let hasUserDonated = false;
+    const telegramPopup = document.getElementById('telegramPopup');
 
-    // Function to show the donation popup
-    function showDonationPopup() {
-        if (!hasUserDonated && donationPopup) {
-            donationPopup.style.display = 'flex';  // Show the popup
+    // Function to show popup
+    function showPopup(popup) {
+        popup.style.display = 'block';
+    }
+
+    // Function to hide popup
+    function hidePopup(popup) {
+        popup.style.display = 'none';
+    }
+
+    // Setup close buttons
+    document.querySelectorAll('.popup-close').forEach(button => {
+        button.addEventListener('click', function() {
+            hidePopup(this.parentElement);
+        });
+    });
+
+    // Donation button click handler
+    document.getElementById('donateButton').addEventListener('click', function() {
+        donationClicked = true;
+        hidePopup(donationPopup);
+    });
+
+    // Telegram button click handler
+    document.querySelector('#telegramPopup .popup-button').addEventListener('click', function() {
+        telegramClicked = true;
+        hidePopup(telegramPopup);
+    });
+
+    // Show donation popup every 20 seconds if not donated
+    setInterval(function() {
+        if (!donationClicked) {
+            showPopup(donationPopup);
         }
-    }
+    }, 20000);
 
-    // Initial popup after 1 second
-    setTimeout(showDonationPopup, 1000);
-
-    // Handle donation button click
-    if (donateButton) {
-        donateButton.addEventListener('click', function() {
-            hasUserDonated = true;  // Flag to prevent popup from showing again
-            donationPopup.style.display = 'none';  // Hide the popup immediately
-        });
-    }
-
-    // Handle close button click (like window.close())
-    if (closeButton) {
-        closeButton.addEventListener('click', function(e) {
-            e.preventDefault();  // Prevent the default action
-            donationPopup.style.display = 'none';  // Close the popup immediately
-            hasUserDonated = true;  // Set the flag so it doesn't reappear
-            console.log('Popup closed');  // Debug log
-        });
-    } else {
-        console.log('Close button not found');  // Debug log if the button isn't found
-    }
-
-    // Add console logs for debugging
-    console.log('Donation popup element:', donationPopup);
-    console.log('Close button element:', closeButton);
+    // Show telegram popup 10 seconds after page load and every 20 seconds thereafter
+    setTimeout(function() {
+        if (!telegramClicked) {
+            showPopup(telegramPopup);
+        }
+        setInterval(function() {
+            if (!telegramClicked) {
+                showPopup(telegramPopup);
+            }
+        }, 20000);
+    }, 10000);
 });
