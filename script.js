@@ -34,13 +34,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const donateButton = document.querySelector('.donate-button');
     const closeButton = document.getElementById('closePopup');
     let hasUserDonated = false;
-    let popupTimeout;
 
     // Function to show the donation popup
     function showDonationPopup() {
         if (!hasUserDonated && donationPopup) {
             donationPopup.style.display = 'flex';  // Show the popup
-            popupTimeout = setTimeout(showDonationPopup, 20000);  // Reset the popup to show again after 20 seconds
         }
     }
 
@@ -52,18 +50,16 @@ document.addEventListener('DOMContentLoaded', function() {
         donateButton.addEventListener('click', function() {
             hasUserDonated = true;  // Flag to prevent popup from showing again
             donationPopup.style.display = 'none';  // Hide the popup immediately
-            clearTimeout(popupTimeout);  // Clear any previous popup timeouts
         });
     }
 
-    // Handle close button click
+    // Handle close button click (like window.close())
     if (closeButton) {
         closeButton.addEventListener('click', function(e) {
             e.preventDefault();  // Prevent the default action
             donationPopup.style.display = 'none';  // Close the popup immediately
-            clearTimeout(popupTimeout);  // Clear the previous timeout
-            popupTimeout = setTimeout(showDonationPopup, 20000);  // Set a new timeout for 20 seconds before showing the popup again
-            console.log('Close button clicked');  // Debug log
+            hasUserDonated = true;  // Set the flag so it doesn't reappear
+            console.log('Popup closed');  // Debug log
         });
     } else {
         console.log('Close button not found');  // Debug log if the button isn't found
