@@ -34,18 +34,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const donateButton = document.querySelector('.donate-button');
     const closeButton = document.getElementById('closePopup');
     let hasUserDonated = false;
+    let popupTimeout;
 
     function showDonationPopup() {
         if (!hasUserDonated && donationPopup) {
             donationPopup.style.display = 'flex';
+            popupTimeout = setTimeout(showDonationPopup, 20000);
         }
     }
 
-    // Show initial popup after 1 second
+    // Initial popup after 1 second
     setTimeout(showDonationPopup, 1000);
-
-    // Show popup every 20 seconds if not donated
-    setInterval(showDonationPopup, 20000);
 
     // Handle donation button click
     if (donateButton) {
