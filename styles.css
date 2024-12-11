@@ -163,6 +163,12 @@ body {
     .dropdown-select {
         width: 100%;
     }
+
+    .donation-content {
+        margin: 15px;
+        padding: 1.5rem;
+        max-width: 90%;
+    }
 }
 
 @media (max-width: 480px) {
@@ -172,6 +178,15 @@ body {
 
     .logo {
         font-size: 1.2rem;
+    }
+
+    .donation-content {
+        padding: 1rem;
+    }
+
+    .donate-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
     }
 }
 
@@ -216,6 +231,7 @@ body {
     z-index: 2000;
     justify-content: center;
     align-items: center;
+    padding: 15px;
 }
 
 .donation-content {
@@ -226,6 +242,8 @@ body {
     max-width: 400px;
     margin: 20px;
     animation: popupFade 0.3s ease-in-out;
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 .donate-button {
@@ -237,6 +255,12 @@ body {
     text-decoration: none;
     margin-top: 1rem;
     transition: background-color 0.3s ease;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem auto;
+    max-width: 200px;
 }
 
 .donate-button:hover {
