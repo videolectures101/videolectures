@@ -31,22 +31,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Donation popup functionality
     const donationPopup = document.getElementById('donationPopup');
+    const donateButton = document.querySelector('.donate-button');
     let hasUserDonated = false;
 
     function showDonationPopup() {
-        if (!hasUserDonated) {
+        if (!hasUserDonated && donationPopup) {
             donationPopup.style.display = 'flex';
         }
     }
 
-    // Show initial popup after a short delay
+    // Show initial popup after 1 second
     setTimeout(showDonationPopup, 1000);
 
-    // Show popup every 20 seconds
+    // Show popup every 20 seconds if not donated
     setInterval(showDonationPopup, 20000);
 
     // Handle donation button click
-    const donateButton = document.querySelector('.donate-button');
     if (donateButton) {
         donateButton.addEventListener('click', function() {
             hasUserDonated = true;
