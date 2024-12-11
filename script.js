@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Donation popup functionality
     const donationPopup = document.getElementById('donationPopup');
     const donateButton = document.querySelector('.donate-button');
+    const closeButton = document.getElementById('closePopup');
     let hasUserDonated = false;
 
     function showDonationPopup() {
@@ -50,6 +51,13 @@ document.addEventListener('DOMContentLoaded', function() {
     if (donateButton) {
         donateButton.addEventListener('click', function() {
             hasUserDonated = true;
+            donationPopup.style.display = 'none';
+        });
+    }
+
+    // Handle close button click
+    if (closeButton) {
+        closeButton.addEventListener('click', function() {
             donationPopup.style.display = 'none';
         });
     }
