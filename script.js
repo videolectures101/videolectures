@@ -1,46 +1,54 @@
-let score = 0;
-let gameInterval;
-let countdown;
+document.addEventListener('DOMContentLoaded', function() {
+    // Add event listeners to all select elements
+    const selects = document.querySelectorAll('.dropdown-select');
+    
+    selects.forEach(select => {
+        select.addEventListener('change', function(e) {
+            const selectedTopic = e.target.value;
+            const selectId = e.target.id;
+            
+            // Handle the selection based on which dropdown was used
+            switch(selectId) {
+                case 'videoLectures':
+                    console.log('Video Lecture selected:', selectedTopic);
+                    // Add your video lecture logic here
+                    break;
+                case 'speedTest':
+                    console.log('Speed Test selected:', selectedTopic);
+                    // Add your speed test logic here
+                    break;
+                case 'resources':
+                    console.log('Resource selected:', selectedTopic);
+                    // Add your resources logic here
+                    break;
+            }
+        });
+    });
 
-const target = document.getElementById('target');
-const scoreDisplay = document.getElementById('score');
-const startButton = document.getElementById('start-button');
-const gameArea = document.getElementById('game-area');
+    // Hamburger menu toggle
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const navLinks = document.getElementById('navLinks');
+    hamburgerMenu.addEventListener('click', function() {
+        navLinks.classList.toggle('show');
+    });
 
-function getRandomPosition() {
-    const areaRect = gameArea.getBoundingClientRect();
-    const x = Math.random() * (areaRect.width - 50); // 50 is the size of the target
-    const y = Math.random() * (areaRect.height - 50);
-    return { x, y };
-}
+    // Donation popup functionality
+    const donationPopup = document.getElementById('donationPopup');
+    let hasUserDonated = false;
 
-function moveTarget() {
-    const { x, y } = getRandomPosition();
-    target.style.left = `${x}px`;
-    target.style.top = `${y}px`;
-    target.style.display = 'block';
-}
+    function showDonationPopup() {
+        if (!hasUserDonated) {
+            donationPopup.style.display = 'flex';
+        }
+    }
 
-function startGame() {
-    score = 0;
-    scoreDisplay.textContent = score;
-    startButton.disabled = true;
-    target.style.display = 'block';
+    // Show popup every 60 seconds if user hasn't donated
+    setInterval(showDonationPopup, 60000);
 
-    gameInterval = setInterval(moveTarget, 800); // Move target every 0.8 seconds
-
-    countdown = setTimeout(() => {
-        clearInterval(gameInterval);
-        target.style.display = 'none';
-        startButton.disabled = false;
-        alert(`Game Over! Your score is ${score}.`);
-    }, 10000); // End game after 10 seconds
-}
-
-target.addEventListener('click', () => {
-    score++;
-    scoreDisplay.textContent = score;
-    target.style.display = 'none';
+    // Handle donation button click
+    const donateButton = document.querySelector('.donate-button');
+    donateButton.addEventListener('click', function() {
+        hasUserDonated = true;
+        donationPopup.style.display = 'none';
+    });
 });
-
-startButton.addEventListener('click', startGame);
