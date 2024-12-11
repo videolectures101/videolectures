@@ -59,6 +59,13 @@ document.addEventListener('DOMContentLoaded', function() {
         closeButton.addEventListener('click', function(e) {
             e.preventDefault();
             donationPopup.style.display = 'none';
+            
+            // Clear any existing timeout
+            clearTimeout(popupTimeout);
+            
+            // Set a new timeout for 20 seconds
+            popupTimeout = setTimeout(showDonationPopup, 20000);
+            
             console.log('Close button clicked'); // Debug log
         });
     } else {
