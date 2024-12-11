@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function showDonationPopup() {
         if (!hasUserDonated && donationPopup) {
             donationPopup.style.display = 'flex';
-            popupTimeout = setTimeout(showDonationPopup, 20000);
+            console.log('Popup shown'); // Debug log
         }
     }
 
@@ -64,7 +64,10 @@ document.addEventListener('DOMContentLoaded', function() {
             clearTimeout(popupTimeout);
             
             // Set a new timeout for 20 seconds
-            popupTimeout = setTimeout(showDonationPopup, 20000);
+            popupTimeout = setTimeout(function() {
+                // Show popup after a delay of 20 seconds
+                setTimeout(showDonationPopup, 20000);
+            }, 20000);
             
             console.log('Close button clicked'); // Debug log
         });
