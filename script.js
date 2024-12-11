@@ -36,10 +36,11 @@ document.addEventListener('DOMContentLoaded', function() {
     let hasUserDonated = false;
     let popupTimeout;
 
+    // Function to show the donation popup
     function showDonationPopup() {
         if (!hasUserDonated && donationPopup) {
-            donationPopup.style.display = 'flex';
-            console.log('Popup shown'); // Debug log
+            donationPopup.style.display = 'flex';  // Show the popup
+            popupTimeout = setTimeout(showDonationPopup, 20000);  // Reset the popup to show again after 20 seconds
         }
     }
 
@@ -49,30 +50,23 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle donation button click
     if (donateButton) {
         donateButton.addEventListener('click', function() {
-            hasUserDonated = true;
-            donationPopup.style.display = 'none';
+            hasUserDonated = true;  // Flag to prevent popup from showing again
+            donationPopup.style.display = 'none';  // Hide the popup immediately
+            clearTimeout(popupTimeout);  // Clear any previous popup timeouts
         });
     }
 
     // Handle close button click
     if (closeButton) {
         closeButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            donationPopup.style.display = 'none';
-            
-            // Clear any existing timeout
-            clearTimeout(popupTimeout);
-            
-            // Set a new timeout for 20 seconds
-            popupTimeout = setTimeout(function() {
-                // Show popup after a delay of 20 seconds
-                setTimeout(showDonationPopup, 20000);
-            }, 20000);
-            
-            console.log('Close button clicked'); // Debug log
+            e.preventDefault();  // Prevent the default action
+            donationPopup.style.display = 'none';  // Close the popup immediately
+            clearTimeout(popupTimeout);  // Clear the previous timeout
+            popupTimeout = setTimeout(showDonationPopup, 20000);  // Set a new timeout for 20 seconds before showing the popup again
+            console.log('Close button clicked');  // Debug log
         });
     } else {
-        console.log('Close button not found'); // Debug log
+        console.log('Close button not found');  // Debug log if the button isn't found
     }
 
     // Add console logs for debugging
