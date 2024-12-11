@@ -48,6 +48,32 @@ document.addEventListener('DOMContentLoaded', function() {
         popup.style.display = 'none';
     }
 
+    // Function to get random time between min and max seconds
+    function getRandomTime(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min) * 1000;
+    }
+
+    // Function to schedule next popup
+    function scheduleNextDonationPopup() {
+        if (!donationClicked) {
+            const nextTime = getRandomTime(15, 30); // Random time between 15-30 seconds
+            setTimeout(() => {
+                showPopup(donationPopup);
+                scheduleNextDonationPopup(); // Schedule next popup
+            }, nextTime);
+        }
+    }
+
+    function scheduleNextTelegramPopup() {
+        if (!telegramClicked) {
+            const nextTime = getRandomTime(15, 30); // Random time between 15-30 seconds
+            setTimeout(() => {
+                showPopup(telegramPopup);
+                scheduleNextTelegramPopup(); // Schedule next popup
+            }, nextTime);
+        }
+    }
+
     // Setup close buttons
     document.querySelectorAll('.popup-close').forEach(button => {
         button.addEventListener('click', function() {
@@ -67,22 +93,14 @@ document.addEventListener('DOMContentLoaded', function() {
         hidePopup(telegramPopup);
     });
 
-    // Show donation popup every 20 seconds if not donated
-    setInterval(function() {
-        if (!donationClicked) {
-            showPopup(donationPopup);
-        }
-    }, 20000);
+    // Start the random popup scheduling after initial delays
+    setTimeout(() => {
+        showPopup(donationPopup);
+        scheduleNextDonationPopup();
+    }, getRandomTime(5, 10)); // First donation popup between 5-10 seconds
 
-    // Show telegram popup 10 seconds after page load and every 20 seconds thereafter
-    setTimeout(function() {
-        if (!telegramClicked) {
-            showPopup(telegramPopup);
-        }
-        setInterval(function() {
-            if (!telegramClicked) {
-                showPopup(telegramPopup);
-            }
-        }, 20000);
-    }, 10000);
+    setTimeout(() => {
+        showPopup(telegramPopup);
+        scheduleNextTelegramPopup();
+    }, getRandomTime(10, 15)); // First telegram popup between 10-15 seconds
 });
