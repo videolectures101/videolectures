@@ -32,29 +32,28 @@ document.addEventListener('DOMContentLoaded', function() {
         navLinks.classList.toggle('show');
     });
 
-    // Popup functionality - only for telegram
-    const telegramPopup = document.getElementById('telegramPopup');
-
-    // Function to show popup
-    function showPopup(popup) {
-        popup.style.display = 'block';
+    // Show popup when page loads
+    window.onload = function() {
+        document.getElementById('telegramPopup').style.display = 'block';
     }
 
-    // Function to hide popup
-    function hidePopup(popup) {
-        popup.style.display = 'none';
+    // Close popup function
+    function closePopup() {
+        document.getElementById('telegramPopup').style.display = 'none';
     }
 
     // Setup close button
-    document.querySelector('.close-btn').addEventListener('click', function() {
-        hidePopup(telegramPopup);
-    });
+    const closeBtn = document.querySelector('#telegramPopup .close-btn');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closePopup);
+    }
 
     // Telegram button click handler
-    document.querySelector('#telegramPopup .join-btn').addEventListener('click', function() {
-        hidePopup(telegramPopup);
-    });
+    const telegramBtn = document.querySelector('#telegramPopup .join-btn');
+    if (telegramBtn) {
+        telegramBtn.addEventListener('click', closePopup);
+    }
 
-    // Show telegram popup immediately when page loads
-    showPopup(telegramPopup);
+    // Show telegram popup immediately
+    document.getElementById('telegramPopup').style.display = 'block';
 });
