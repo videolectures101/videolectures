@@ -205,7 +205,7 @@ body {
     }
 }
 
-.popup {
+.telegram-popup {
     display: none;
     position: fixed;
     top: 0;
@@ -213,7 +213,7 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1000;
+    z-index: 9999;
 }
 
 .popup-content {
@@ -221,32 +221,11 @@ body {
     background-color: #fff;
     max-width: 500px;
     margin: 20px auto;
-    padding: 20px;
+    padding: 25px;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    animation: slideIn 0.5s ease-out;
     top: 50%;
     transform: translateY(-50%);
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(-50%);
-        opacity: 1;
-    }
-}
-
-.close-btn {
-    position: absolute;
-    right: 15px;
-    top: 10px;
-    font-size: 24px;
-    cursor: pointer;
-    color: #666;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .popup-header {
@@ -255,59 +234,59 @@ body {
 }
 
 .telegram-logo {
-    width: 100px;
-    margin-bottom: 10px;
-}
-
-.popup-header h2 {
-    color: #e74c3c;
-    margin: 10px 0;
-}
-
-.popup-body {
-    padding: 0 20px;
-}
-
-.urgent-msg {
-    color: #e74c3c;
-    font-weight: bold;
-    font-size: 1.1em;
+    width: 80px;
+    height: auto;
     margin-bottom: 15px;
 }
 
-.popup-body ul {
-    list-style: none;
-    padding: 0;
+.close-btn {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #666;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+.popup-body {
+    text-align: center;
+}
+
+.urgent-msg {
+    color: #ff3b30;
+    font-weight: bold;
+    font-size: 1.1em;
     margin: 15px 0;
+}
+
+.popup-body ul {
+    text-align: left;
+    margin: 20px auto;
+    max-width: 300px;
 }
 
 .popup-body li {
     margin: 10px 0;
-    font-size: 1.1em;
 }
 
 .join-btn {
-    display: block;
-    background-color: #2ecc71;
+    display: inline-block;
+    background-color: #0088cc;
     color: white;
-    text-align: center;
-    padding: 15px 20px;
-    border-radius: 5px;
+    padding: 15px 30px;
+    border-radius: 25px;
     text-decoration: none;
     font-weight: bold;
     margin-top: 20px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
 }
 
 .join-btn:hover {
-    background-color: #27ae60;
-}
-
-@media (max-width: 600px) {
-    .popup-content {
-        margin: 10px;
-        width: auto;
-    }
+    background-color: #006699;
 }
 
 /* Add these new styles and remove all donation popup related styles */
