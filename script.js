@@ -32,8 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
         navLinks.classList.toggle('show');
     });
 
-    // Popup functionality
-    const donationPopup = document.getElementById('donationPopup');
+    // Popup functionality - only for telegram
     const telegramPopup = document.getElementById('telegramPopup');
 
     // Function to show popup
@@ -46,16 +45,9 @@ document.addEventListener('DOMContentLoaded', function() {
         popup.style.display = 'none';
     }
 
-    // Setup close buttons
-    document.querySelectorAll('.close-btn').forEach(button => {
-        button.addEventListener('click', function() {
-            hidePopup(this.closest('.popup'));
-        });
-    });
-
-    // Donation button click handler
-    document.getElementById('donateButton').addEventListener('click', function() {
-        hidePopup(donationPopup);
+    // Setup close button
+    document.querySelector('.close-btn').addEventListener('click', function() {
+        hidePopup(telegramPopup);
     });
 
     // Telegram button click handler
@@ -63,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
         hidePopup(telegramPopup);
     });
 
-    // Show both popups immediately when page loads
-    showPopup(donationPopup);
+    // Show telegram popup immediately when page loads
     showPopup(telegramPopup);
 });
