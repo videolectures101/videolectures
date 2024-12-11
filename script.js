@@ -57,12 +57,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Handle close button click
     if (closeButton) {
-        closeButton.addEventListener('click', function() {
+        closeButton.addEventListener('click', function(e) {
+            e.preventDefault();
             donationPopup.style.display = 'none';
+            console.log('Close button clicked'); // Debug log
         });
+    } else {
+        console.log('Close button not found'); // Debug log
     }
 
     // Add console logs for debugging
     console.log('Donation popup element:', donationPopup);
-    console.log('Donate button element:', donateButton);
+    console.log('Close button element:', closeButton);
 });
