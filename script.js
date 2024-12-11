@@ -47,9 +47,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Setup close buttons
-    document.querySelectorAll('.popup-close').forEach(button => {
+    document.querySelectorAll('.close-btn').forEach(button => {
         button.addEventListener('click', function() {
-            hidePopup(this.parentElement);
+            hidePopup(this.closest('.popup'));
         });
     });
 
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Telegram button click handler
-    document.querySelector('#telegramPopup .popup-button').addEventListener('click', function() {
+    document.querySelector('#telegramPopup .join-btn').addEventListener('click', function() {
         hidePopup(telegramPopup);
     });
 
