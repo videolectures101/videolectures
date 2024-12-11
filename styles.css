@@ -227,11 +227,10 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 2000;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
     justify-content: center;
     align-items: center;
-    padding: 15px;
 }
 
 .donation-content {
@@ -241,9 +240,7 @@ body {
     text-align: center;
     max-width: 400px;
     margin: 20px;
-    animation: popupFade 0.3s ease-in-out;
-    max-height: 90vh;
-    overflow-y: auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .donate-button {
@@ -255,25 +252,8 @@ body {
     text-decoration: none;
     margin-top: 1rem;
     transition: background-color 0.3s ease;
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 1rem auto;
-    max-width: 200px;
 }
 
 .donate-button:hover {
     background-color: #34495e;
-}
-
-@keyframes popupFade {
-    from {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
 }
