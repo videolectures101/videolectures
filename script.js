@@ -63,12 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
         hidePopup(telegramPopup);
     });
 
-    // Show popups once when page loads
-    setTimeout(() => {
-        showPopup(donationPopup);
-    }, 2000); // Show donation popup after 2 seconds
-
-    setTimeout(() => {
-        showPopup(telegramPopup);
-    }, 4000); // Show telegram popup after 4 seconds
+    // Show both popups immediately when page loads
+    showPopup(donationPopup);
+    showPopup(telegramPopup);
 });
