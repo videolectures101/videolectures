@@ -32,28 +32,11 @@ document.addEventListener('DOMContentLoaded', function() {
         navLinks.classList.toggle('show');
     });
 
-    // Show popup when page loads
-    window.onload = function() {
-        document.getElementById('telegramPopup').style.display = 'block';
-    }
-
-    // Close popup function
-    function closePopup() {
-        document.getElementById('telegramPopup').style.display = 'none';
-    }
-
-    // Setup close button
-    const closeBtn = document.querySelector('#telegramPopup .close-btn');
-    if (closeBtn) {
-        closeBtn.addEventListener('click', closePopup);
-    }
-
-    // Telegram button click handler
-    const telegramBtn = document.querySelector('#telegramPopup .join-btn');
-    if (telegramBtn) {
-        telegramBtn.addEventListener('click', closePopup);
-    }
-
-    // Show telegram popup immediately
+    // Show popup immediately when a user visits the site
     document.getElementById('telegramPopup').style.display = 'block';
 });
+
+// Close popup function
+function closePopup() {
+    document.getElementById('telegramPopup').style.display = 'none';
+}
