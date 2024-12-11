@@ -33,8 +33,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Popup functionality
-    let donationClicked = false;
-    let telegramClicked = false;
     const donationPopup = document.getElementById('donationPopup');
     const telegramPopup = document.getElementById('telegramPopup');
 
@@ -48,32 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
         popup.style.display = 'none';
     }
 
-    // Function to get random time between min and max seconds
-    function getRandomTime(min, max) {
-        return Math.floor(Math.random() * (max - min + 1) + min) * 1000;
-    }
-
-    // Function to schedule next popup
-    function scheduleNextDonationPopup() {
-        if (!donationClicked) {
-            const nextTime = getRandomTime(15, 30); // Random time between 15-30 seconds
-            setTimeout(() => {
-                showPopup(donationPopup);
-                scheduleNextDonationPopup(); // Schedule next popup
-            }, nextTime);
-        }
-    }
-
-    function scheduleNextTelegramPopup() {
-        if (!telegramClicked) {
-            const nextTime = getRandomTime(15, 30); // Random time between 15-30 seconds
-            setTimeout(() => {
-                showPopup(telegramPopup);
-                scheduleNextTelegramPopup(); // Schedule next popup
-            }, nextTime);
-        }
-    }
-
     // Setup close buttons
     document.querySelectorAll('.popup-close').forEach(button => {
         button.addEventListener('click', function() {
@@ -83,24 +55,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Donation button click handler
     document.getElementById('donateButton').addEventListener('click', function() {
-        donationClicked = true;
         hidePopup(donationPopup);
     });
 
     // Telegram button click handler
     document.querySelector('#telegramPopup .popup-button').addEventListener('click', function() {
-        telegramClicked = true;
         hidePopup(telegramPopup);
     });
 
-    // Start the random popup scheduling after initial delays
+    // Show popups once when page loads
     setTimeout(() => {
         showPopup(donationPopup);
-        scheduleNextDonationPopup();
-    }, getRandomTime(5, 10)); // First donation popup between 5-10 seconds
+    }, 2000); // Show donation popup after 2 seconds
 
     setTimeout(() => {
         showPopup(telegramPopup);
-        scheduleNextTelegramPopup();
-    }, getRandomTime(10, 15)); // First telegram popup between 10-15 seconds
+    }, 4000); // Show telegram popup after 4 seconds
 });
