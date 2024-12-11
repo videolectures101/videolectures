@@ -309,3 +309,39 @@ body {
         width: auto;
     }
 }
+
+/* Add these new styles and remove all donation popup related styles */
+.donation-section {
+    background-color: #fff;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.donation-section h2 {
+    color: #e74c3c;
+    margin-bottom: 1rem;
+}
+
+.donation-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.donation-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.donation-section li {
+    margin: 0.5rem 0;
+    font-size: 1.1em;
+}
+
+.donation-section .join-btn {
+    display: inline-block;
+    margin-top: 1rem;
+}
