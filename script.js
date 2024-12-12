@@ -32,11 +32,20 @@ document.addEventListener('DOMContentLoaded', function() {
         navLinks.classList.toggle('show');
     });
 
-    // Show popup immediately when a user visits the site
-    document.getElementById('telegramPopup').style.display = 'block';
+    // Debugging: Check if telegramPopup exists
+    const telegramPopup = document.getElementById('telegramPopup');
+    if (telegramPopup) {
+        console.log('Telegram Popup Element Found');
+        telegramPopup.style.display = 'block';
+    } else {
+        console.error('Telegram Popup Element Not Found');
+    }
 });
 
 // Close popup function
 function closePopup() {
-    document.getElementById('telegramPopup').style.display = 'none';
+    const telegramPopup = document.getElementById('telegramPopup');
+    if (telegramPopup) {
+        telegramPopup.style.display = 'none';
+    }
 }
