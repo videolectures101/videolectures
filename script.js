@@ -25,6 +25,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Hamburger menu toggle
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const navLinks = document.getElementById('navLinks');
+    hamburgerMenu.addEventListener('click', function() {
+        navLinks.classList.toggle('show');
+    });
+
     // Add upgrade to pro message
     const mainContent = document.querySelector('main') || document.body;
     const upgradeDiv = document.createElement('div');
@@ -37,28 +44,4 @@ document.addEventListener('DOMContentLoaded', function() {
         </p>
     `;
     mainContent.insertBefore(upgradeDiv, mainContent.firstChild);
-
-    // Hamburger menu toggle
-    const hamburgerMenu = document.getElementById('hamburgerMenu');
-    const navLinks = document.getElementById('navLinks');
-    hamburgerMenu.addEventListener('click', function() {
-        navLinks.classList.toggle('show');
-    });
-
-    // Debugging: Check if telegramPopup exists
-    const telegramPopup = document.getElementById('telegramPopup');
-    if (telegramPopup) {
-        console.log('Telegram Popup Element Found');
-        telegramPopup.style.display = 'block';
-    } else {
-        console.error('Telegram Popup Element Not Found');
-    }
 });
-
-// Close popup function
-function closePopup() {
-    const telegramPopup = document.getElementById('telegramPopup');
-    if (telegramPopup) {
-        telegramPopup.style.display = 'none';
-    }
-}
