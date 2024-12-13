@@ -241,19 +241,27 @@ body {
 }
 
 .upgrade-banner {
-    background-color: #f8f9fa;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 5px;
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+    padding: 12px;
     text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #dee2e6;
 }
 
 .upgrade-link {
     color: #007bff;
     font-weight: bold;
     text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: block;
 }
 
 .upgrade-link:hover {
-    text-decoration: underline;
+    background-color: #007bff;
+    color: white;
+    transform: scale(1.02);
 }
