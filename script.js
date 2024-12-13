@@ -25,6 +25,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Add upgrade to pro message
+    const mainContent = document.querySelector('main') || document.body;
+    const upgradeDiv = document.createElement('div');
+    upgradeDiv.className = 'upgrade-banner';
+    upgradeDiv.innerHTML = `
+        <p>🌟 Want unlimited access to all video lectures and resources? 
+           <a href="https://videolectures101.github.io/videolectures/" class="upgrade-link">
+             Upgrade to Pro now!
+           </a>
+        </p>
+    `;
+    mainContent.insertBefore(upgradeDiv, mainContent.firstChild);
+
     // Hamburger menu toggle
     const hamburgerMenu = document.getElementById('hamburgerMenu');
     const navLinks = document.getElementById('navLinks');
