@@ -251,17 +251,23 @@ body {
 }
 
 .upgrade-link {
-    color: #007bff;
-    font-weight: bold;
     text-decoration: none;
     padding: 8px 16px;
-    border-radius: 4px;
-    transition: all 0.3s ease;
     display: block;
 }
 
-.upgrade-link:hover {
-    background-color: #007bff;
+.pro-button {
+    background-color: #28a745;
     color: white;
-    transform: scale(1.02);
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.pro-button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
