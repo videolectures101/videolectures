@@ -324,3 +324,21 @@ body {
     display: inline-block;
     margin-top: 1rem;
 }
+
+.upgrade-banner {
+    background-color: #f8f9fa;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.upgrade-link {
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.upgrade-link:hover {
+    text-decoration: underline;
+}
