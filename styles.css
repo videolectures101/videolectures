@@ -248,12 +248,14 @@ body {
     top: 0;
     z-index: 100;
     border-bottom: 1px solid #dee2e6;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
-.upgrade-link {
+.upgrade-link, .donate-link {
     text-decoration: none;
     padding: 8px 16px;
-    display: block;
 }
 
 .pro-button {
@@ -266,8 +268,24 @@ body {
     display: inline-block;
 }
 
+.donate-button {
+    background-color: #dc3545;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
 .pro-button:hover {
     background-color: #218838;
+    transform: scale(1.05);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.donate-button:hover {
+    background-color: #c82333;
     transform: scale(1.05);
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
