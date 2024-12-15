@@ -1,34 +1,40 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Add event listeners to all select elements
-    const selects = document.querySelectorAll('.dropdown-select');
-    
-    selects.forEach(select => {
-        select.addEventListener('change', function(e) {
-            const selectedTopic = e.target.value;
-            const selectId = e.target.id;
-            
-            // Handle the selection based on which dropdown was used
-            switch(selectId) {
-                case 'videoLectures':
-                    console.log('Video Lecture selected:', selectedTopic);
-                    // Add your video lecture logic here
-                    break;
-                case 'speedTest':
-                    console.log('Speed Test selected:', selectedTopic);
-                    // Add your speed test logic here
-                    break;
-                case 'resources':
-                    console.log('Resource selected:', selectedTopic);
-                    // Add your resources logic here
-                    break;
-            }
-        });
-    });
-
-    // Hamburger menu toggle
-    const hamburgerMenu = document.getElementById('hamburgerMenu');
-    const navLinks = document.getElementById('navLinks');
-    hamburgerMenu.addEventListener('click', function() {
-        navLinks.classList.toggle('show');
-    });
+document.getElementById('homeLink').addEventListener('click', function (e) {
+    try {
+        window.location.href = this.href;
+    } catch (error) {
+        console.error('Navigation error:', error);
+    }
 });
+
+// Optional: Add some interactive algebra-themed elements
+function createMathBackground() {
+    const symbols = ['x', 'y', '+', '-', '∫', '√', '∑', '∏', '='];
+    const container = document.body;
+
+    function createSymbol() {
+        const symbol = document.createElement('div');
+        symbol.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        symbol.style.position = 'fixed';
+        symbol.style.fontSize = `${Math.random() * 20 + 10}px`;
+        symbol.style.color = 'rgba(0,0,0,0.1)';
+        symbol.style.left = `${Math.random() * 100}%`;
+        symbol.style.top = `${Math.random() * 100}%`;
+        symbol.style.zIndex = '-1';
+        container.appendChild(symbol);
+
+        const animation = symbol.animate([
+            { transform: 'translateY(0)' },
+            { transform: `translateY(${window.innerHeight}px)` }
+        ], {
+            duration: Math.random() * 10000 + 5000,
+            iterations: Infinity,
+            easing: 'linear'
+        });
+    }
+
+    for (let i = 0; i < 50; i++) {
+        createSymbol();
+    }
+}
+
+createMathBackground();
