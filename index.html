@@ -3,99 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Math Genius Academy</title>
+    <title>Algebra Learning Playlist</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="mobile-notice" id="mobileNotice">
-        📱 For the best experience, please rotate your device to landscape mode.
-        <button class="notice-close" onclick="this.parentElement.style.display='none'">×</button>
-    </div>
-    <nav class="navbar">
-        <div class="logo">Math Genius Academy</div>
-        <button class="hamburger" id="hamburgerMenu">&#9776;</button>
-        <div class="nav-links" id="navLinks">
-            <div class="dropdown">
-                <label for="videoLectures">Video Lectures</label>
-                <select id="videoLectures" class="dropdown-select">
-                    <option value="" disabled selected>Select Topic</option>
-                    <option value="algebra">Algebra</option>
-                    <option value="geometry">Geometry</option>
-                    <option value="arithmetic">Arithmetic</option>
-                </select>
-            </div>
-            <div class="dropdown">
-                <label for="speedTest">Test Your Speed</label>
-                <select id="speedTest" class="dropdown-select">
-                    <option value="" disabled selected>Select Topic</option>
-                    <option value="algebra">Algebra</option>
-                    <option value="geometry">Geometry</option>
-                    <option value="arithmetic">Arithmetic</option>
-                </select>
-            </div>
-            <div class="dropdown">
-                <label for="resources">Downloadable Resources</label>
-                <select id="resources" class="dropdown-select">
-                    <option value="" disabled selected>Select Topic</option>
-                    <option value="algebra">Algebra</option>
-                    <option value="geometry">Geometry</option>
-                    <option value="arithmetic">Arithmetic</option>
-                </select>
-            </div>
-            <a href="https://mathquiz101.github.io/Mathquiz101/" target="_blank">Practice Questions</a>
-        </div>
-    </nav>
-
-    <div class="upgrade-banner">
-        <a href="https://videolectures101.github.io/videolectures/" class="upgrade-link">
-            <span class="pro-button">🌟 Upgrade to Pro! 🌟</span>
-        </a>
-        <a href="https://videolectures101.github.io/videolectures/" class="donate-link">
-            <span class="donate-button">💝 Donate Here! 💝</span>
-        </a>
-    </div>
-
     <div class="container">
-        <h1>Welcome to Math Genius Academy</h1>
-        <p>Your comprehensive online mathematics learning platform. Explore various mathematical disciplines with expert-curated content.</p>
-        
-        <div class="feature-grid">
-            <div class="feature-box">
-                <h2>Personalized Learning</h2>
-                <p>Tailored mathematical learning paths for students of all levels.</p>
+        <header class="algebra-header">
+            <h1>Algebra Learning Playlist</h1>
+            <div class="math-symbols" aria-hidden="true">
+                x + y = ∫ √ ∑ ∏
             </div>
-            <div class="feature-box">
-                <h2>Expert Tutors</h2>
-                <p>Learn from experienced mathematicians and educators.</p>
-            </div>
-            <div class="feature-box">
-                <h2>Interactive Content</h2>
-                <p>Engaging video lectures, quizzes, and downloadable resources.</p>
-            </div>
+        </header>
+
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/videoseries?list=PL7AF1C14AF1B05894" 
+                title="Algebra YouTube Playlist" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
         </div>
 
-        <div class="donation-section">
-            <h2>🚨 Support Our Educational Mission By Donating! 🚨</h2>
-            <p class="urgent-msg">Help Us Create More Quality Content!</p>
-            <div class="donation-content">
-                <p>Your contribution helps us provide more free quality educational resources for students worldwide:</p>
+        <div class="playlist-instructions">
+            <h3>How to View Full Playlist</h3>
+            <p>To access the complete playlist, look for the <span class="instruction-icon">≡</span> (playlist menu) icon in the top-right corner of the YouTube video frame.</p>
+            <p>Click on this icon to:
                 <ul>
-                    <li>📚 Free Educational Resources</li>
-                    <li>📝 Quality Math Content</li>
-                    <li>👥 Better Learning Tools</li>
-                    <li>🎯 Enhanced Features</li>
+                    <li>See all videos in the playlist</li>
+                    <li>Select and play any specific video</li>
+                    <li>Check the total number of videos</li>
                 </ul>
-                <a href="https://videolectures101.github.io/videolectures/" class="join-btn" target="_blank">
-                    DONATE HERE!
-                </a>
-            </div>
+            </p>
+        </div>
+
+        <div class="algebra-description">
+            <h2>Explore Algebra Fundamentals</h2>
+            <p>This curated playlist takes you through the essential concepts of Algebra, from basic equations to more complex algebraic structures. Learn at your own pace and master the mathematical foundations.</p>
+        </div>
+
+        <div class="navigation">
+            <a href="https://waecmathsuccess.github.io/Waecmathsuccess/" class="btn" id="homeLink">Home</a>
         </div>
     </div>
-
-    <footer class="footer">
-        <p>&copy; 2024 Math Genius Academy. All Rights Reserved.</p>
-    </footer>
-
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
